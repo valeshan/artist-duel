@@ -4,6 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "apollo-engine": "^1.1.2",
     "apollo-server": "^2.0.5",
     "apollo-server-express": "^2.0.4",
     "express": "^4.16.3",
