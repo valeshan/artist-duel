@@ -12,4 +12,4 @@ const config = {
 module.exports = config
 ```
 
-The app uses GraphQL to access the REST APIs. Currently the GraphiQL IDE is available through ```localhost://4000/graphql``` with the schema also available for reference.
+The app uses GraphQL to access the REST APIs. Currently the GraphiQL IDE is available through ```localhost:4000/graphql``` with the schema also available for reference.
