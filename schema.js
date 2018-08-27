@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 const { GraphQLList, GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString } = require('graphql');
-const { apiKey } = require('./config');
+const { apiKey } = require('./config/config');
 
 const trackType = new GraphQLObjectType({
   name: 'Track',
