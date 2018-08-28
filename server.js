@@ -29,31 +29,36 @@
 
 // Import ApolloEngine
 const { ApolloEngine } = require("apollo-engine");
-const { ApolloServer } = require("apollo-server-express");
+const { ApolloServer, gql } = require("apollo-server-express");
 const { apolloEngineKey } = require('./config/config');
+const mongoose = require('mongoose');
 
 const express = require("express");
 const schema = require('./schema');
 
+const typeDefs = require('./mongoschema');
+const resolvers = require('./resolvers');
+
+mongoose.connect('mongodb://localhost/test');
+
+const User = mongoose.model('User', { name: String });
+
 // Initialize Apollo Server
 const server = new ApolloServer({
-  schema,
+  typeDefs,
+  resolvers,
+  // schema,
+  context: { User },
   tracing: true,
   cacheControl: true,
-  // We set `engine` to false, so that the new agent is not used.
   engine: false
 });
 
-
-// Initialize your Express app like before
 const app = express();
 
 // All of your GraphQL middleware goes here
 server.applyMiddleware({ app });
 
-// Initialize engine with your API key. Alternatively,
-// set the ENGINE_API_KEY environment variable when you
-// run your program.
 const engine = new ApolloEngine({
   apiKey: apolloEngineKey
 });

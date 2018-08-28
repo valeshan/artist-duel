@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 const { GraphQLList, GraphQLObjectType, GraphQLSchema, GraphQLInt, GraphQLString } = require('graphql');
-const { apiKey } = require('./config/config');
+const { LastFMapiKey } = require('./config/config');
 
 const trackType = new GraphQLObjectType({
   name: 'Track',
@@ -46,7 +46,7 @@ const artistType = new GraphQLObjectType({
       type: new GraphQLList(trackType),
       resolve: data => {
         const name = [data.artist.name];
-        return fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${name}&limit=5&api_key=${apiKey}&format=json`)
+        return fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${name}&limit=5&api_key=${LastFMapiKey}&format=json`)
                        .then(res => res.json())
                        .then(res => res.toptracks.track)
                   }
@@ -65,7 +65,7 @@ module.exports = new GraphQLSchema({
         args: {
           name: { type: GraphQLString }
         },
-        resolve: (root, args) => fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${args.name}&api_key=${apiKey}&format=json`)
+        resolve: (root, args) => fetch(`http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${args.name}&api_key=${LastFMapiKey}&format=json`)
              .then(res => res.json())
       }
     })
