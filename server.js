@@ -8,9 +8,10 @@ const { apolloEngineKey } = require('./config/config');
 // Imports: GraphQL
 const SERVER = require('./schema.js');
 // Middleware: GraphQL
-SERVER.applyMiddleware({
-  app
-});
+SERVER.applyMiddleware({ app });
+
+
+
 // Express: Port
 const PORT = 4000 || process.env;
 
