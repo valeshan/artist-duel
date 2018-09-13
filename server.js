@@ -1,32 +1,18 @@
 // Imports: Express
-const express = require('express');
+import express from 'express';
+import GraphHTTP from 'express-graphql';
+
 const app = express();
 
-const { ApolloEngine } = require("apollo-engine");
-const { apolloEngineKey } = require('./config/config');
+const api_schema = require('./src/data/apischema').api_schema;
 
-// Imports: GraphQL
-const SERVER = require('./schema.js');
-// Middleware: GraphQL
-SERVER.applyMiddleware({ app });
-
-
-
-// Express: Port
-const PORT = 4000 || process.env;
-
-const engine = new ApolloEngine({
-  apiKey: apolloEngineKey
-});
-
-// // Express: Listener
-// app.listen(PORT, () => {
-//   console.log(`The server has started on port: ${PORT}`);
-//   console.log(`http://localhost:${PORT}/graphql`);
-// });
+app.use('/', GraphHTTP({
+  schema: api_schema,
+  pretty: true,
+  graphiql: true
+}))
 
 // Call engine.listen instead of app.listen(port)
-engine.listen({
-  port: 4000,
-  expressApp: app
+app.listen(4000, () => {
+  console.log('app is listening on port 4000');
 });
