@@ -2,12 +2,19 @@
 import express from 'express';
 import GraphHTTP from 'express-graphql';
 
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/artist-duel');
+
+const Artist = mongoose.model('Artist', { name: String});
+
 const app = express();
 
 const api_schema = require('./src/data/apischema').api_schema;
 
 app.use('/', GraphHTTP({
   schema: api_schema,
+  context: { Artist },
   pretty: true,
   graphiql: true
 }))
