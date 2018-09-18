@@ -3,3 +3,29 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+table{
+  text-align: center;
+}
+
+th:first-child{
+  background-color: orange;
+  color: white;
+  text-align: center;
+}
+
+.comparator-header{
+  visibility: hidden;
+}
+
+.comparator-panel{
+  margin-top: 0.4em;
+}
+
+.comparator-track{
+  background-color: #90EE90;
+}
+
+.comparator-count{
+  background-color: #90EE90;
+}

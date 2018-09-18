@@ -27,7 +27,7 @@ const artist = new GraphQLObjectType({
           const track_URL = `http://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=${name}&limit=1&api_key=${LastFMapiKey}&format=json`;
           const track_list = (await get_from_API(track_URL)).toptracks.track;
           let top_track_name = track_list[0].name;
-          artist.video_url = await video_search(top_track_name);
+          artist.video_url = await video_search(`${top_track_name} ${name}`);
           return artist.video_url;
         }
       },

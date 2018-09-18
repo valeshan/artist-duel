@@ -12,7 +12,7 @@ window.setState = (changes) => {
 }
 
 let initialState = {
-  name: 'Valeshan'
+  name: 'John'
 };
 
 window.setState(initialState);
