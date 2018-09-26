@@ -15,8 +15,6 @@ export default class SearchArtist extends Component {
     this.state = {
       artistName: ''
     }
-    this.onInputChange = this.onInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   // state = {
   //   response: ''
@@ -37,12 +35,12 @@ export default class SearchArtist extends Component {
   //   return body;
   // };
 
-onInputChange(artistName){
+onInputChange = (artistName) => {
   this.setState({ artistName })
   return artistName;
 }
 
-async handleSubmit(e) {
+ handleSubmit = async (e) => {
   e.preventDefault();
   // access to form values
   // make api calls
@@ -58,8 +56,7 @@ async handleSubmit(e) {
         <div>
         hi {this.props.name}
                 <form method="post" onSubmit = { this.handleSubmit }>
-                    Artist Name:<br/>
-                    <input type="text"  onChange = {e=> this.onInputChange(e.target.value)} name="Artist"/>
+                    <input type="text"  onChange = {e=> this.onInputChange(e.target.value)} name="Artist" placeholder="Artist Name"/>
                     <input type="submit" value="Search"/>
                 </form>
         </div>

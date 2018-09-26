@@ -19,10 +19,10 @@ th:first-child{
 }
 
 .comparator-panel{
-  margin-top: 0.4em;
+  margin-top: -0.9em;
 }
 
-.comparator-track{
+.comparator-track-winner{
   background-color: #90EE90;
 }
 

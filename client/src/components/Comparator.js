@@ -11,15 +11,15 @@ export default class Comparator extends Component{
         <Table bordered hover responsive>
           <thead className="comparator-header">
           <tr>
-          <th>Artist</th>
+          <th colSpan="4">Artist</th>
           </tr>
           </thead>
           <tbody>
-          <tr className = "comparator-count">
-          <td>&lt;</td>
+          <tr>
+          <td className = "listener-comparator comparator-track-winner circle" >&lt;</td>
           </tr>
-          <tr className = "comparator-count">
-          <td>&gt;</td>
+          <tr>
+          <td className = "comparator-track-winner circle">&gt;</td>
           </tr>
           <tr>
           <td>
@@ -31,19 +31,24 @@ export default class Comparator extends Component{
             </thead>
             <tbody>
             <tr>
-            <td className = "comparator-track circle">&gt;</td>
+            <td className = "comparator-track-winner circle">O</td>
+            <td className = "comparator-track">X</td>
             </tr>
             <tr>
-            <td className = "comparator-track">&lt;</td>
+            <td className = "comparator-track">X</td>
+            <td className = "comparator-track-winner">O</td>
             </tr>
             <tr>
-            <td className = "comparator-track">&gt;</td>
+            <td className = "comparator-track-winner">O</td>
+            <td className = "comparator-track">X</td>
             </tr>
             <tr>
-            <td className = "comparator-track">&lt;</td>
+            <td className = "comparator-track">X</td>
+            <td className = "comparator-track-winner">O</td>
             </tr>
             <tr>
-            <td className = "comparator-track">&gt;</td>
+            <td className = "comparator-track">X</td>
+            <td className = "comparator-track-winner">O</td>
             </tr>
             </tbody>
           </Table>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+import ArtistStore from './ArtistStore';
+
 import Navigation from './components/Navigation';
 import SearchArtist from './components/SearchArtist';
 import ArtistPanel from './components/ArtistPanel';
@@ -17,8 +19,10 @@ class App extends Component {
             <Col md={1}>
             </Col>
             <Col xs={5} md={4}>
-              <SearchArtist {... this.props} className= "artist-a"/>
-              <ArtistPanel />
+              <SearchArtist 
+              // {... this.props}
+               className= "artist-a"/>
+              <ArtistPanel store = {ArtistStore} />
             </Col>
             <Col xs={1} md={2}>
               <Comparator />
