@@ -1,6 +1,6 @@
 // const express = require('express');
 // // const graphql = require('graphql');
-// // constsomething  graphqlHTTP = require('express-graphql');
+// // coasdasdasdnstsomething  graphqlHTTP = require('express-graphql');
 //
 // const { ApolloServer, gql } = require('apollo-server-express');
 // const app = express();
